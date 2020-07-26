@@ -1,0 +1,69 @@
+---
+repos:
+  - repo: local
+    hooks:
+      # - id: ansible-lint
+      #   name: ansible-lint
+      #   language: system
+      #   entry: ansible-lint
+      #   types: [yaml]
+      - id: dockerfile-lint
+        name: dockerfile-lint
+        language: system
+        entry: hadolint
+        types: [dockerfile]
+      - id: go-format
+        name: go-format
+        language: system
+        entry: gofmt -sed
+        types: [go]
+      - id: go-lint
+        name: go-lint
+        language: system
+        entry: golangci-lint run
+        types: [go]
+      # - id: helm-lint
+      #   name: helm-lint
+      #   language: system
+      #   entry: bash -c "test -d helm && helm lint helm/* || true"
+      #   types: [yaml]
+      - id: json-lint
+        name: json-lint
+        language: system
+        entry: jsonlint
+        types: [json]
+      - id: markdown-lint
+        name: markdown-lint
+        language: system
+        entry: markdownlint
+        types: [markdown]
+      - id: python-format
+        name: python-format
+        language: system
+        entry: black --check
+        types: [python]
+      - id: python-isort
+        name: python-isort
+        language: system
+        entry: isort --check
+        types: [python]
+      - id: python-lint
+        name: python-lint
+        language: system
+        entry: pylint
+        types: [python]
+      - id: shell-lint
+        name: shell-lint
+        language: system
+        entry: shellcheck
+        types: [shell]
+      - id: terraform-lint
+        name: terraform-lint
+        language: system
+        entry: tflint
+        types: [terraform]
+      - id: yaml-lint
+        name: yaml-lint
+        language: system
+        entry: yamllint
+        types: [yaml]
